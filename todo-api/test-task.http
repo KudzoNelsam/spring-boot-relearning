@@ -1,0 +1,22 @@
+DELETE http://localhost:8080/api/v1/tasks/2
+
+###
+PATCH http://localhost:8080/api/v1/tasks/2/finish
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:8080/api/v1/tasks
+Accept: application/json
+
+###
+POST http://localhost:8080/api/v1/tasks
+Content-Type: application/json
+
+{
+  "title": "Tache 2",
+  "description": "Finir l'ajout"
+}
+
+###
