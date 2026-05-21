@@ -7,3 +7,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+app:
+  cors:
+    origins:
+      - http://localhost:4200
+      - https://todo-app-frontend-dev.herokuapp.com
