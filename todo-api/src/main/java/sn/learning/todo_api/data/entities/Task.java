@@ -1,5 +1,6 @@
 package sn.learning.todo_api.data.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,5 +20,6 @@ public class Task extends BaseEntity {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    @Column(nullable = false)
+    private Status status = Status.ACTIVE;
 }
