@@ -2,10 +2,40 @@
   <h2 class="text-2xl font-bold">Liste des taches</h2>
 
   <div class="flex justify-end align-center gap-3 my-3">
-    <input type="text" class="input w-full" placeholder="Add Task">
-    <button class="btn btn-soft">
-      Ajouter
+    <div class="w-full">
+      <input type="text" [formField]="taskForm.title"
+
+
+             class="outline-0 input w-full " placeholder="title">
+      @if (taskForm.title().touched()) {
+        <ul class="text-xs text-red-400 italic">
+          @for (error of taskForm.title().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </div>
+    <div class="w-full">
+      <input type="text"
+             [formField]="taskForm.description"
+             class="outline-0 input w-full" placeholder="description">
+      @if (taskForm.description().touched()) {
+        <ul class="text-xs text-red-400 italic">
+          @for (error of taskForm.description().errors(); track error) {
+            <li>{{ error.message }}</li>
+          }
+        </ul>
+      }
+    </div>
+    <button class="btn btn-soft"
+            (click)="saveTask()"
+            [disabled]="this.taskForm().invalid()">
+      Save
     </button>
   </div>
-  <app-task-list/>
+  <div class="bg-gray-100 p-4 rounded-md">
+    <p>title : {{ taskModel().title }}</p>
+    <p>description : {{ taskModel().description }}</p>
+  </div>
+  <app-task-list [tasksList]="tasks" />
 </div>

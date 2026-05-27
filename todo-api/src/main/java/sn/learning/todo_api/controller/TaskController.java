@@ -31,7 +31,7 @@ public class TaskController {
     @GetMapping()
     public ResponseEntity<ApiPaginatedResponse<List<TaskResponse>>> getAllTasks(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
+            @RequestParam(defaultValue = "20") int size
     ) {
         var pageTask = taskService.getAllTasks(page, size);
         var tasks = pageTask.getContent().stream().map(taskMapper::toDto).toList();

@@ -20,7 +20,7 @@
         </thead>
         <tbody>
         <!-- row 1 -->
-          @for (task of tasks(); track task.id) {
+          @for (task of tasksList(); track task.id) {
 
             <tr class="">
               <th>{{ task.id }}</th>
@@ -28,7 +28,7 @@
               <td>{{ task.description }}</td>
               <td>
                 <div class="badge badge-md badge-soft badge-info">{{ task.status }}</div>
-                </td>
+              </td>
             </tr>
           } @empty {
             <p class="text-gray-500 italic">Aucune tâche trouvée.</p>

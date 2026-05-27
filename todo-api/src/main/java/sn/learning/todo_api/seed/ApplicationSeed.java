@@ -27,6 +27,7 @@ public class ApplicationSeed implements CommandLineRunner {
                 tasks.add(
                         Task.builder()
                             .title("Task " + i)
+                                .status(Status.ACTIVE)
                             .description("Description " + i)
                             .build()
                 );
